@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title>Age ID {title}</title>
+        <link rel='stylesheet' href='https://cdn1.ageid.com/css/ageid-button.css' />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' />
+        <style>
+            html, body {
+                color: #666;
+                font-family: 'Droid Sans', Arial;
+                min-width: 275px;
+            }
+            body {
+                background: #FFF url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAATklEQVQYlX3KMRaAIBAD0Vhx/9sBBddgQzNW+kDRlPlzRAQpJT03xlBrTWIz2+Sc6b3zCmYE1uDCiLg/zVhKWfAOvhBAfwigWiu2t2ibE+ns5G6pLSLvAAAAAElFTkSuQmCC') repeat;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+            main {
+                background: #FFF;
+                margin: 10% auto;
+                max-width: 640px;
+                position: relative;
+                transition: margin .2s linear;
+                width: 100%;
+            }
+            h1, p {
+                margin: 0;
+                padding: 0;
+                transition: font-size .2s linear;
+            }
+            #img {
+                margin: 7% 0 8.7% 0;
+                max-width: 100%;
+            }
+            h1 {
+                font-size: 40px;
+                font-weight: bold;
+                margin-bottom: 9.5%;
+            }
+            .disc {
+                font-size: 24px;
+                margin-bottom: 8.7%;
+                padding: 0 8.5%;
+            }
+            .once {
+                color: #5ba7d0;
+                font-size: 16px;
+                margin-bottom: 4.7%;
+            }
+            .priv {
+                font-size: 14px;
+                margin-top: 8%;
+                padding: 0 8% 5% 8%;
+            }
+            @media (max-width: 640px) {
+                .priv {
+                    font-size: 12px;
+                    padding: 0 6% 5% 6%;
+                }
+            }
+            @media (max-width: 500px) {
+                main {
+                    margin-top: 0;
+                    height: auto;
+                }
+            }
+            @media (min-width: 501px) and (max-width: 550px) {
+                h1 {
+                    font-size: 34px;
+                }
+                .disc {
+                    font-size: 22px;
+                }
+                .once {
+                    font-size: 14px;
+                }
+                .priv {
+                    font-size: 11px;
+                }
+            }
+            @media (min-width: 451px) and (max-width: 500px) {
+                h1 {
+                    font-size: 30px;
+                }
+                .disc {
+                    font-size: 20px;
+                }
+                .once {
+                    font-size: 12px;
+                }
+                .priv {
+                    font-size: 10px;
+                }
+            }
+            @media (max-width: 450px) {
+                h1 {
+                    font-size: 26px;
+                }
+                .disc {
+                    font-size: 16px;
+                }
+                .once {
+                    font-size: 10px;
+                }
+                .priv {
+                    font-size: 8px;
+                }
+            }
+            @media (max-width: 360px) {
+                h1 {
+                    font-size: 24px;
+                }
+                .disc {
+                    font-size: 14px;
+                }
+            }
+            @media (max-width: 310px) {
+                h1 {
+                    font-size: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <!--<img id='img' src='{img}'/>-->
+            <img id='img' src='./../img/logo/BDAS-AgeID-logo.png'/>
+            <h1>AgeID Verification Process</h1>
+            <p class='disc'>UK Law now requires all users to be <b>age&nbsp;verified</b> prior to accessing adult content</p>
+            <p class='once'>You only need to do this once</p>
+            <button class='btn__ageid btn__ageid--blue' id='ageIdVerify'></button> 
+            <p class='priv'>AgeID is private and secure, it does not see or store any of your age verification data,<br/>nor does it track which sites you are accessing</p>
+        </main>
+    </body>
+</html>
