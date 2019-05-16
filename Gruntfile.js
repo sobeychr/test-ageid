@@ -7,35 +7,35 @@ module.exports = grunt => {
         clean: require('./grunt/clean.js')(grunt),
         copy: require('./grunt/copy.js')(grunt),
         htmlmin: require('./grunt/htmlmin.js')(grunt),
-        'string-replace': require('./grunt/string.js')(grunt),
         uglify: require('./grunt/uglify.js')(grunt),
     });
-
-    const jsPath = 'dist/script.js';
 
     grunt.registerTask('default', () => {
         grunt.log.errorlns('Unable to run "default" task');
         grunt.log.writelns('>> run "grunt build"');
         grunt.log.writelns('>> run "grunt clean"');
-        grunt.log.writelns('>> run "grunt rename"');
+        //grunt.log.writelns('>> run "grunt rename"');
     });
 
-    grunt.registerTask('build', function() {
-        const done = this.async();
+    grunt.registerTask('build', ['copy', 'htmlmin', 'uglify', 'string']);
 
-        grunt.task.run(['copy:dist', 'htmlmin','uglify']);
+    grunt.registerTask('string', function() {
+        const pathHtml = './dist/index.html';
+        const pathJs = './dist/script.js';
 
-        setTimeout(() => {
-            grunt.task.run(['string-replace']);
+        const js = grunt.file.read(pathJs);
+        const html = grunt.file.read(pathHtml);
+        const cut = html.substring(
+            html.indexOf('<script'),
+            html.indexOf('</script')
+        );
+        const newHtml = html.replace(cut, '<script>' + js);
 
-            if(grunt.file.exists(jsPath)) {
-                grunt.file.delete(jsPath);
-            }
-
-            done();
-        }, 1100);
+        grunt.file.write(pathHtml, newHtml);
+        grunt.file.delete(pathJs);
     });
 
+    /*
     grunt.registerTask('rename', () => {
         grunt.file.recurse('./src/img', (abs, rootDir, sub, filename) => {
             filename = filename
@@ -49,4 +49,5 @@ module.exports = grunt => {
             grunt.file.delete(abs);
         });
     });
+    */
 };
