@@ -11,7 +11,7 @@ module.exports = grunt => {
                 removeComments: true
             },
             files: {
-                'dist/index.html': 'dist/index.html'
+                'dist/index.html': 'src/index.html'
             }
         }
     };

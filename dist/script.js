@@ -1,0 +1,1 @@
+!function(){var o=window.location.hostname;console.log(o)}();
