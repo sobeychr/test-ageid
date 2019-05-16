@@ -17,12 +17,13 @@ module.exports = grunt => {
         grunt.log.errorlns('Unable to run "default" task');
         grunt.log.writelns('>> run "grunt build"');
         grunt.log.writelns('>> run "grunt clean"');
+        grunt.log.writelns('>> run "grunt rename"');
     });
 
-    grunt.registerTask('build', 'Building...', function() {
+    grunt.registerTask('build', function() {
         const done = this.async();
 
-        grunt.task.run(['copy', 'htmlmin','uglify']);
+        grunt.task.run(['copy:dist', 'htmlmin','uglify']);
 
         setTimeout(() => {
             grunt.task.run(['string-replace']);
@@ -33,5 +34,19 @@ module.exports = grunt => {
 
             done();
         }, 1100);
+    });
+
+    grunt.registerTask('rename', () => {
+        grunt.file.recurse('./src/img', (abs, rootDir, sub, filename) => {
+            filename = filename
+                .toLowerCase()
+                .replace(/[^\w\d\.]+/g, '')
+                .replace('logo', '');
+
+            const newPath = rootDir + '/' + filename;
+            
+            grunt.file.copy(abs, newPath);
+            grunt.file.delete(abs);
+        });
     });
 };

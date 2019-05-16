@@ -10,6 +10,7 @@
     setTimeout(function(){
         var isLocal = loc.protocol.indexOf('file') >= 0;
         var domain = isLocal ? getSearch() : getDomain();
+        domain = domain.toLowerCase().replace(/[^\d\w]+/g, '');
         doc.getElementById('img').src = './img/' + domain + '.png';
     }, 10);
 })(window.location, document);
