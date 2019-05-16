@@ -1,1 +1,1 @@
-!function(e,c){var o=0<=e.protocol.indexOf("file")?e.search.replace("?d=",""):e.hostname.replace("www.","").replace(".com","");c.getElementById("img").src="./img/"+o+".png"}(window.location,document);
+!function(o,c){setTimeout(function(){var e=0<=o.protocol.indexOf("file")?o.search.replace("?d=",""):o.hostname.replace("www.","").replace(".com","");e=e.toLowerCase().replace(/[^\d\w]+/g,""),c.getElementById("img").src="./img/"+e+".png"},10)}(window.location,document);

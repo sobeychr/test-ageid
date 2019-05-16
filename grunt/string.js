@@ -4,21 +4,19 @@ module.exports = grunt => {
     grunt.loadNpmTasks('grunt-string-replace');
 
     const path = './dist/script.js';
-    let replacement = '';
+    let js = '';
     if(grunt.file.exists(path)) {
-        replacement = grunt.file.read(path);
+        js = grunt.file.read(path);
     }
 
     return {
         dist: {
             options: {
                 replacements: [
-                    /*
                     {
-                        pattern: '{script}',
-                        replacement
+                        pattern: /\<script[^\<]+\<\/script\>/,
+                        replacement: '<script>' + js + '</script>'
                     }
-                    */
                 ]
             },
             files: {
