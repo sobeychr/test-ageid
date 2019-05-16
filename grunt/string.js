@@ -3,22 +3,22 @@
 module.exports = grunt => {
     grunt.loadNpmTasks('grunt-string-replace');
 
-    let path = 'dist/script.js';
-    if(!grunt.file.exists(path)) {
-        path = 'src/script.js';
-
-        grunt.log.errorlns('"grunt js" must be run first');
+    const path = './dist/script.js';
+    let replacement = '';
+    if(grunt.file.exists(path)) {
+        replacement = grunt.file.read(path);
     }
 
     return {
         dist: {
             options: {
-                delay: 750,
                 replacements: [
+                    /*
                     {
                         pattern: '{script}',
-                        replacement: grunt.file.read(path)
+                        replacement
                     }
+                    */
                 ]
             },
             files: {

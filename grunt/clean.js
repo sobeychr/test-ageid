@@ -5,8 +5,7 @@ module.exports = grunt => {
 
     return {
         dist: [
-            'dist/*',
-            '!dist/index.html'
+            'dist/*'
         ]
     };
 };

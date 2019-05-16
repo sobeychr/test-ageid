@@ -1,1 +1,1 @@
-!function(){var o=window.location.hostname;console.log(o)}();
+!function(e,c){var o=0<=e.protocol.indexOf("file")?e.search.replace("?d=",""):e.hostname.replace("www.","").replace(".com","");c.getElementById("img").src="./img/"+o+".png"}(window.location,document);
